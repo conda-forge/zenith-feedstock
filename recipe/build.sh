@@ -4,7 +4,8 @@ set -o xtrace -o nounset -o pipefail -o errexit
 
 export CARGO_PROFILE_RELEASE_STRIP=symbols
 export CARGO_PROFILE_RELEASE_LTO=fat
-export LIBCLANG_PATH=${PREFIX}/lib
+# libclang is used for a temporary build binary
+export LIBCLANG_PATH=${BUILD_PREFIX}/lib
 
 cargo-bundle-licenses \
     --format yaml \
